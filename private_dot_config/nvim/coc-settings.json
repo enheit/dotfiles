@@ -1,8 +1,0 @@
-{
-	"suggest.floatEnable": false,
-	"suggest.noselect": false,
-	"diagnostic.virtualText": false,
-	"diagnostic.virtualTextCurrentLineOnly": false,
-	"rust-analyzer.inlayHints.enable": false
-}
-
