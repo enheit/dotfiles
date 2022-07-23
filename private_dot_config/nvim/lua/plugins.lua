@@ -2,6 +2,27 @@ return require('packer').startup(function()
 	-- This is essential for packer to work
 	use 'wbthomason/packer.nvim'
 
+	-- Adds support for 'fancy' virtual lines with errors
+	use({
+	  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	  config = function()
+		require("lsp_lines").setup()
+	  end,
+	})
+
+	-- Used to run rust_analyzer by nvim-lsp
+	use 'neovim/nvim-lspconfig'
+	use 'onsails/lspkind.nvim'
+
+	-- Required to work with nvim-cmp
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-vsnip'
+	use 'hrsh7th/vim-vsnip'
+
 	-- Adds possiblity to autoclose ', ", (, { and other symbols
 	use 'windwp/nvim-autopairs'
 
@@ -10,15 +31,6 @@ return require('packer').startup(function()
 
 	-- Add rustlang support
 	use 'rust-lang/rust.vim'
-
-	-- Add support for autocomletion
-	use {'neoclide/coc.nvim', branch = 'release'}
-
-	-- Syntax checker. Consider to remove it if necessary
-	use 'vim-syntastic/syntastic'
-
-	-- Helps comment like a PRO. Consider to remove it if necessary
-	use 'preservim/nerdcommenter'
 
 	-- Add icons to the files inside project navigator (NerdTree)
 	use 'ryanoasis/vim-devicons'
@@ -29,9 +41,6 @@ return require('packer').startup(function()
 	-- Add fuzzy finder 
 	use { 'junegunn/fzf', run = ":call fzf#install()" }
 	use 'junegunn/fzf.vim'
-
-	-- Multiple cursor support. Seems like this plugin is unecessary
-	use 'terryma/vim-multiple-cursors'
 
 	-- Project tree navigation (NerdTREE analogy)
 	use 'Shougo/defx.nvim'

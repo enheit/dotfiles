@@ -1,4 +1,3 @@
-vim.g.mapleader = " " -- map leader to comma
 vim.opt.number = true -- Shows line numbers
 vim.opt.relativenumber = true -- Shows line numbers relative to current cursor position
 vim.opt.autoindent = true
@@ -15,4 +14,7 @@ vim.opt.laststatus = 3
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.clipboard = "unnamedplus" -- Allows NeoVim to access the system clipboard
+vim.opt.signcolumn = "yes"
 
+
+--hi Pmenu ctermbg=10 ctermfg=15 guibg=#ffffff guifg=#000000

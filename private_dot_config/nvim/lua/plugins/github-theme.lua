@@ -1,4 +1,10 @@
 require("github-theme").setup({
+	colors = {
+		pmenu = {
+			bg = "#transparent"
+		}
+	},
+	transparent = true,
 	theme_style = "light",
 	overrides = function(c)
 		return {
@@ -7,7 +13,4 @@ require("github-theme").setup({
 		}
 	end
 })
-
-vim.g.github_colors = { hint = "orange", error = "#ff0000" }
-
 

@@ -1,8 +1,13 @@
 local options = { noremap = true }
 
--- Fzf
-vim.api.nvim_set_keymap('n', '<leader>o', ':Files<cr>', options)
-vim.api.nvim_set_keymap('n', '<leader>f', ':BLines<cr>', options)
+vim.g.mapleader = " " -- map leader to comma
+   
+-- Fzf TODO: Remove this mappings, becase Telescope is used
+vim.api.nvim_set_keymap('n', '<leader>o', ':Files<CR>', options)
+vim.api.nvim_set_keymap('n', '<leader>i', ':BLines<CR>', options)
+
+-- Telescope
+-- vim.api.nvim_set_keymap('n', '<leader>o', ':Telescope find_files<CR>', options)
 
 -- Go to tab by number
 vim.api.nvim_set_keymap('n', '<leader>1', '1gt', options)
@@ -29,3 +34,4 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', options)
 --hSplit window
 vim.api.nvim_set_keymap('n', 'sh', ':split<cr>', options)
 vim.api.nvim_set_keymap('n', 'sv', ':vsplit<cr>', options)
+

@@ -13,4 +13,6 @@ require('plugins.dark-notify')
 require('plugins.fzf')
 require('plugins.colorizer')
 require('plugins.toggleterm')
-
+require('plugins.lsp-lines')
+require('plugins.nvim-cmp')
+require('plugins.nvim-lspconfig')
