@@ -70,14 +70,48 @@ local handlers =  {
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
 }
 
-require('lspconfig')['rust_analyzer'].setup{
+local nvim_lsp = require 'lspconfig'
+
+nvim_lsp.rust_analyzer.setup ({
     on_attach = on_attach,
-	handlers = handlers,
+    handlers = handlers,
     flags = lsp_flags,
     -- Server-specific settings...
     settings = {
       ["rust-analyzer"] = {}
     }
+})
+
+-- Enable GraphQL support
+nvim_lsp.graphql.setup{
+    handlers = handlers,
+    on_attach = on_attach,
+    flags = lsp_flags
+}
+
+-- Enable JSON support
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.jsonls.setup{
+    handlers = handlers,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    init_options = { provideFormatter = true }
+}
+
+nvim_lsp.gopls.setup {
+    on_attach = on_attach,
+    handlers = handlers,
+    flags = lsp_flags
+}
+
+-- Enable TS support
+require'lspconfig'.tsserver.setup{
+    on_attach = on_attach,
+    handlers = handlers,
+    flags = lsp_flags
 }
 
 -- Adds border to :LspInfo command

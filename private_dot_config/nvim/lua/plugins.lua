@@ -2,6 +2,23 @@ return require('packer').startup(function()
 	-- This is essential for packer to work
 	use 'wbthomason/packer.nvim'
 
+  use "steelsojka/pears.nvim"
+
+  -- Improve syntax highlight
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  -- Theme
+  use { "ellisonleao/gruvbox.nvim" }
+
+  -- Welcome screen
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  --   config = function ()
+  --      require'alpha'.setup(require'alpha.themes.startify'.config)
+  --   end
+  }
+
 	-- Adds support for 'fancy' virtual lines with errors
 	use({
 	  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -9,6 +26,14 @@ return require('packer').startup(function()
 		require("lsp_lines").setup()
 	  end,
 	})
+
+	-- Add support for comments
+	use {
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup()
+		end
+	}
 
 	-- Used to run rust_analyzer by nvim-lsp
 	use 'neovim/nvim-lspconfig'

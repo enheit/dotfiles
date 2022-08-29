@@ -35,3 +35,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', options)
 vim.api.nvim_set_keymap('n', 'sh', ':split<cr>', options)
 vim.api.nvim_set_keymap('n', 'sv', ':vsplit<cr>', options)
 
+-- Insert new line
+vim.api.nvim_set_keymap('n', 'n', 'o<Esc>', options)
+vim.api.nvim_set_keymap('n', 'N', 'O<Esc>', options)
+
